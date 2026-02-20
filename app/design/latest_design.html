@@ -1,2 +1,197 @@
-<!-- Fallback Design for: Create a simple Pomodoro timer with a cyberpunk aesthetic. -->
-<div class='p-10 bg-red-100 text-red-800'><h1>Stitch Connection Failed</h1><p>Stitch API Error: {'code': -32602, 'message': 'Tools Call name is not found in the list of tools'}</p></div>
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cybernetic Scan Login</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#258cf4",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .hex-clip {
+            clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+        }
+        .scan-line {
+            background: linear-gradient(to bottom, transparent, #258cf4, transparent);
+            height: 2px;
+            width: 100%;
+            position: absolute;
+            z-index: 50;
+            box-shadow: 0 0 15px #258cf4;
+            animation: scan 4s linear infinite;
+        }
+        @keyframes scan {
+            0% { top: 0%; opacity: 0; }
+            5% { opacity: 1; }
+            95% { opacity: 1; }
+            100% { top: 100%; opacity: 0; }
+        }
+        .hud-border {
+            position: relative;
+        }
+        .hud-border::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            width: 10px;
+            height: 10px;
+            border-top: 2px solid #258cf4;
+            border-left: 2px solid #258cf4;
+        }
+        .hud-border::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            right: -2px;
+            width: 10px;
+            height: 10px;
+            border-bottom: 2px solid #258cf4;
+            border-right: 2px solid #258cf4;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased overflow-hidden">
+<div class="relative flex h-screen w-full flex-col overflow-hidden bg-[#0a0f14]">
+<!-- Scanner Animation Overlay -->
+<div class="scan-line pointer-events-none opacity-50"></div>
+<!-- Ambient Background Pattern -->
+<div class="absolute inset-0 z-0 opacity-20 pointer-events-none" data-alt="Abstract technical grid pattern with dots" style="background-image: radial-gradient(#258cf4 0.5px, transparent 0.5px); background-size: 24px 24px;">
+</div>
+<!-- Top Header Status Bar -->
+<div class="relative z-10 flex justify-between px-6 pt-12 pb-4 text-[10px] tracking-widest text-primary/70 font-bold uppercase">
+<div class="flex items-center gap-2">
+<span class="size-1.5 bg-primary rounded-full animate-pulse"></span>
+                SYSTEM_STATUS: ACTIVE
+            </div>
+<div>
+                ENCR_LVL: 256_BIT
+            </div>
+</div>
+<!-- Main Content Scroll Area (Centered vertically for login) -->
+<div class="relative z-10 flex flex-1 flex-col items-center justify-center px-8 pb-20">
+<!-- Logo Section -->
+<div class="mb-10 flex flex-col items-center">
+<div class="relative mb-6">
+<!-- Rotating HUD Elements -->
+<div class="absolute inset-0 scale-150 border border-dashed border-primary/30 rounded-full animate-[spin_10s_linear_infinite]"></div>
+<div class="absolute inset-0 scale-125 border border-primary/20 rounded-full animate-[spin_6s_linear_infinite_reverse]"></div>
+<div class="bg-primary/10 p-6 rounded-full border border-primary/40 backdrop-blur-sm relative">
+<span class="material-symbols-outlined text-primary !text-5xl">fingerprint</span>
+</div>
+</div>
+<h1 class="text-3xl font-bold tracking-[0.2em] text-white text-center">
+                    CYBERNETIC <span class="text-primary">SCAN</span>
+</h1>
+<p class="mt-2 text-[10px] text-primary/50 tracking-[0.3em] font-medium uppercase">Authentication Required</p>
+</div>
+<!-- Login Form -->
+<div class="w-full max-w-sm space-y-6">
+<!-- ID Input -->
+<div class="group relative">
+<label class="absolute -top-3 left-3 bg-[#0a0f14] px-2 text-[10px] font-bold text-primary tracking-widest z-20">
+                        USER_ID_AUTH_01
+                    </label>
+<div class="hud-border bg-primary/5 border border-primary/20 flex items-center px-4 py-4 transition-all focus-within:border-primary/60 focus-within:bg-primary/10">
+<span class="material-symbols-outlined text-primary/60 mr-3 !text-xl">alternate_email</span>
+<input class="bg-transparent border-none text-white placeholder:text-primary/30 focus:ring-0 w-full text-sm font-medium tracking-wide outline-none" placeholder="IDENTITY_KEY" type="text"/>
+</div>
+</div>
+<!-- Password Input -->
+<div class="group relative">
+<label class="absolute -top-3 left-3 bg-[#0a0f14] px-2 text-[10px] font-bold text-primary tracking-widest z-20">
+                        SEC_ACCESS_PHRASE
+                    </label>
+<div class="hud-border bg-primary/5 border border-primary/20 flex items-center px-4 py-4 transition-all focus-within:border-primary/60 focus-within:bg-primary/10">
+<span class="material-symbols-outlined text-primary/60 mr-3 !text-xl">lock</span>
+<input class="bg-transparent border-none text-white placeholder:text-primary/30 focus:ring-0 w-full text-sm font-medium tracking-wide outline-none" placeholder="â¢â¢â¢â¢â¢â¢â¢â¢â¢â¢â¢â¢" type="password"/>
+<span class="material-symbols-outlined text-primary/40 ml-2 !text-lg cursor-pointer hover:text-primary transition-colors">visibility</span>
+</div>
+</div>
+<!-- Action Section -->
+<div class="pt-4 flex flex-col items-center gap-6">
+<!-- Login Button -->
+<button class="hex-clip relative group w-full py-4 bg-primary hover:bg-primary/90 transition-all active:scale-95">
+<div class="relative z-10 flex items-center justify-center gap-2 text-white font-bold tracking-[0.2em]">
+<span>LOG IN</span>
+<span class="material-symbols-outlined !text-lg">login</span>
+</div>
+<!-- Inner glow effect -->
+<div class="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</button>
+<div class="flex w-full items-center justify-between px-2 text-[11px] text-primary/60 font-medium tracking-widest uppercase">
+<a class="hover:text-primary transition-colors" href="#">Forgot Key?</a>
+<a class="hover:text-primary transition-colors" href="#">Enroll User</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Micro Information Footer -->
+<div class="relative z-10 grid grid-cols-3 gap-1 px-4 pb-8 opacity-40">
+<div class="border-t border-primary/30 pt-2 flex flex-col gap-1">
+<span class="text-[8px] font-bold text-primary tracking-tighter uppercase">Lat: 34.0522 N</span>
+<span class="text-[8px] font-bold text-primary tracking-tighter uppercase">Lon: 118.2437 W</span>
+</div>
+<div class="border-t border-primary/30 pt-2 flex flex-col items-center justify-center">
+<div class="flex gap-0.5">
+<div class="size-1 bg-primary rounded-full"></div>
+<div class="size-1 bg-primary rounded-full"></div>
+<div class="size-1 bg-primary/20 rounded-full"></div>
+</div>
+<span class="text-[8px] font-bold text-primary tracking-tighter uppercase mt-1">NODE_SYNC</span>
+</div>
+<div class="border-t border-primary/30 pt-2 text-right">
+<span class="text-[8px] font-bold text-primary tracking-tighter uppercase">Variant 09/10</span>
+<br/>
+<span class="text-[8px] font-bold text-primary tracking-tighter uppercase">BETA_V0.4.1</span>
+</div>
+</div>
+<!-- iOS Bottom Bar Component (adapted style) -->
+<div class="relative z-10 flex gap-2 border-t border-primary/10 bg-black/40 px-4 pb-8 pt-3 backdrop-blur-md">
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined !text-2xl">shield_person</span>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-primary/40 hover:text-primary/80 transition-colors" href="#">
+<span class="material-symbols-outlined !text-2xl">public</span>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-primary/40 hover:text-primary/80 transition-colors" href="#">
+<span class="material-symbols-outlined !text-2xl">insights</span>
+</a>
+<a class="flex flex-1 flex-col items-center justify-center gap-1 text-primary/40 hover:text-primary/80 transition-colors" href="#">
+<span class="material-symbols-outlined !text-2xl">settings</span>
+</a>
+</div>
+<!-- Corner Accents -->
+<div class="absolute top-4 left-4 size-16 border-t-2 border-l-2 border-primary/20 pointer-events-none z-0"></div>
+<div class="absolute bottom-4 right-4 size-16 border-b-2 border-r-2 border-primary/20 pointer-events-none z-0"></div>
+</div>
+</body></html>
